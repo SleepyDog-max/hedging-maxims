@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooperative Principle Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f0f4c3, #b2ebf2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 600px;
+            text-align: center;
+        }
+        h1 {
+            color: #d81b60;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #0288d1;
+        }
+        .question {
+            display: none;
+            color: #333;
+        }
+        .question.active {
+            display: block;
+        }
+        .options label {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #e1bee7;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .options label:hover {
+            background: #ce93d8;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        #prevBtn {
+            background: #ffca28;
+        }
+        #prevBtn:hover {
+            background: #ffb300;
+        }
+        #nextBtn {
+            background: #4caf50;
+        }
+        #nextBtn:hover {
+            background: #388e3c;
+        }
+        #restartBtn {
+            background: #f44336;
+        }
+        #restartBtn:hover {
+            background: #d32f2f;
+        }
+        #summary {
+            display: none;
+            text-align: left;
+        }
+        #summary h2 {
+            color: #d81b60;
+        }
+        #summary p {
+            margin: 10px 0;
+            color: #333;
+        }
+        .correct {
+            color: #388e3c;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cooperative Principle Exercise</h1>
+        <div id="questions">
+            <div class="question" data-correct="a">
+                <h2>Question 1</h2>
+                <p>A: "How was your weekend?"<br>B: "It was fine. Oh, and did you know the Earth is round?"</p>
+                <p>Which maxim is violated, and is there a hedging maxim present?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="a">Maxim of Relation, None present</label>
+                    <label><input type="radio" name="q1" value="b">Maxim of Quantity, Present</label>
+                    <label><input type="radio" name="q1" value="c">Maxim of Quality, None present</label>
+                    <label><input type="radio" name="q1" value="d">Maxim of Manner, Present</label>
+                </div>
+            </div>
+            <div class="question" data-correct="c">
+                <h2>Question 2</h2>
+                <p>A: "Do you think it’ll rain today?"<br>B: "Well, I’m no expert, but it might rain, I suppose."</p>
+                <p>Which maxim is being hedged, and is there a hedging maxim present?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="a">Maxim of Relation, None present</label>
+                    <label><input type="radio" name="q2" value="b">Maxim of Quantity, Present</label>
+                    <label><input type="radio" name="q2" value="c">Maxim of Quality, Present</label>
+                    <label><input type="radio" name="q2" value="d">Maxim of Manner, None present</label>
+                </div>
+            </div>
+            <div class="question" data-correct="b">
+                <h2>Question 3</h2>
+                <p>A: "Why don’t people like the new policy?"<br>B: "It’s unpopular, and that’s the end of it."</p>
+                <p>Which maxim is being hedged, and is there a hedging maxim present?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="a">Maxim of Relation, None present</label>
+                    <label><input type="radio" name="q3" value="b">Maxim of Quantity, Present</label>
+                    <label><input type="radio" name="q3" value="c">Maxim of Quality, Present</label>
+                    <label><input type="radio" name="q3" value="d">Maxim of Manner, None present</label>
+                </div>
+            </div>
+            <div class="question" data-correct="c">
+                <h2>Question 4</h2>
+                <p>A: "What’s the plan for the project?"<br>B: "To put it simply, we’ll finish it by Friday."</p>
+                <p>Which maxim is being hedged, and is there a hedging maxim present?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="a">Maxim of Relation, None present</label>
+                    <label><input type="radio" name="q4" value="b">Maxim of Quantity, Present</label>
+                    <label><input type="radio" name="q4" value="c">Maxim of Manner, Present</label>
+                    <label><input type="radio" name="q4" value="d">Maxim of Quality, None present</label>
+                </div>
+            </div>
+            <div class="question" data-correct="b">
+                <h2>Question 5</h2>
+                <p>A: "Is this movie worth watching?"<br>B: "It’s got good reviews, great actors, a fantastic director, amazing visuals, and a gripping plot—basically, it’s decent."</p>
+                <p>Which maxim is violated, and is there a hedging maxim present?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="a">Maxim of Relation, None present</label>
+                    <label><input type="radio" name="q5" value="b">Maxim of Quantity, Present</label>
+                    <label><input type="radio" name="q5" value="c">Maxim of Quality, None present</label>
+                    <label><input type="radio" name="q5" value="d">Maxim of Manner, Present</label>
+                </div>
+            </div>
+            <div class="question" data-correct="d">
+                <h2>Question 6</h2>
+                <p>A: "Are you coming to the party?"<br>B: "Assuming the stars align and fate permits, yes."</p>
+                <p>Which maxim is being violated, and is there a hedging maxim present?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="a">Maxim of Relation, None present</label>
+                    <label><input type="radio" name="q6" value="b">Maxim of Quantity, Present</label>
+                    <label><input type="radio" name="q6" value="c">Maxim of Quality, None present</label>
+                    <label><input type="radio" name="q6" value="d">Maxim of Manner, Present</label>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+            <button id="restartBtn">Restart</button>
+        </div>
+        <div id="summary">
+            <h2>Summary</h2>
+            <p id="score"></p>
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <script>
+        const questions = document.querySelectorAll('.question');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        const summary = document.getElementById('summary');
+        const questionContainer = document.getElementById('questions');
+        let currentQuestion = 0;
+        const answers = [];
+        const explanations = [
+            "B’s response drifts off-topic by mentioning the Earth’s shape, which has no bearing on the weekend question, breaking the expectation of relevance. There’s no hint of caution or qualification in the statement, so no hedging modifies the contribution.",
+            "B’s phrases 'I’m no expert' and 'I suppose' show uncertainty about the weather prediction, weakening their confidence in its accuracy. This hedging reduces the strength of the claim, suggesting it’s not a definitive answer.",
+            "B’s addition of 'that’s the end of it' cuts off further discussion, limiting the response to a single point. This hedging signals that no more information will be provided, keeping the answer intentionally brief.",
+            "B starts with 'to put it simply,' aiming to deliver the plan in a clear, concise way. This hedging adjusts the response to avoid complexity, ensuring the answer is easy to follow.",
+            "B overloads the answer with details (reviews, actors, etc.) when a simple 'yes' or 'it’s worth it' would suffice, exceeding what’s necessary for the question. However, 'basically' acts as a hedge by summarizing the elaborate praise into a milder conclusion ('it’s decent'), softening the overall claim.",
+            "B’s response uses vague, dramatic language ('assuming the stars align and fate permits') instead of a clear yes or no, clashing with the need for straightforwardness. The conditional phrasing hedges the answer, implying it’s not a firm commitment."
+        ];
+
+        function showQuestion(index) {
+            questions.forEach((q, i) => {
+                q.classList.toggle('active', i === index);
+            });
+            prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
+            nextBtn.textContent = index === questions.length - 1 ? 'Submit' : 'Next';
+            nextBtn.style.display = 'inline-block';
+            restartBtn.style.display = 'inline-block';
+            summary.style.display = 'none';
+            questionContainer.style.display = 'block';
+        }
+
+        function saveAnswer() {
+            const currentQ = questions[currentQuestion];
+            const selected = currentQ.querySelector('input[type="radio"]:checked');
+            answers[currentQuestion] = selected ? selected.value : null;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            saveAnswer();
+            currentQuestion--;
+            showQuestion(currentQuestion);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            saveAnswer();
+            if (currentQuestion < questions.length - 1) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                showSummary();
+            }
+        });
+
+        restartBtn.addEventListener('click', () => {
+            currentQuestion = 0;
+            answers.length = 0;
+            questions.forEach(q => {
+                q.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+            });
+            showQuestion(0);
+            prevBtn.style.display = 'none';  // Hide Previous on first question
+            nextBtn.style.display = 'inline-block';
+            restartBtn.style.display = 'inline-block';
+            summary.style.display = 'none';
+            questionContainer.style.display = 'block';
+        });
+
+        function showSummary() {
+            let score = 0;
+            let resultsHTML = '';
+            questions.forEach((q, i) => {
+                const correct = q.getAttribute('data-correct');
+                const userAnswer = answers[i];
+                const isCorrect = userAnswer === correct;
+                if (isCorrect) score++;
+                resultsHTML += `
+                    <p><strong>Question ${i + 1}:</strong> Your answer: ${userAnswer || 'None selected'} - 
+                    ${isCorrect ? '<span class="correct">Correct</span>' : '<span class="incorrect">Incorrect</span>'} 
+                    (Correct answer: ${correct})</p>
+                    <p><em>Explanation:</em> ${explanations[i]}</p>
+                `;
+            });
+            document.getElementById('score').textContent = `Score: ${score} out of ${questions.length}`;
+            document.getElementById('results').innerHTML = resultsHTML;
+            summary.style.display = 'block';
+            questionContainer.style.display = 'none';
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            restartBtn.style.display = 'inline-block';
+        }
+
+        showQuestion(0);
+    </script>
+</body>
+</html>
